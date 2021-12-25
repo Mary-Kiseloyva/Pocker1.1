@@ -49,7 +49,6 @@ public class Controller {
     public Socket s;
 
     OutputStream outputStream;
-    InputStream inputStream;
     BufferedReader in;
 
     public void setN(int n) {
@@ -69,40 +68,18 @@ public class Controller {
                 setN(Integer.parseInt(NumberOfPlayers.getText()));
                 StartTheGame.getScene().getWindow().hide();
                 //
+
+                    // создать клиента и начинать игру
+                AppClient appClient = new AppClient("localhost", 9999);
                 try {
-                    s = new Socket("localhost",9999);
-                    in = new BufferedReader(new InputStreamReader(s.getInputStream()));
-                    inputStream = s.getInputStream();
-                    outputStream = s.getOutputStream();
-
-                    Thread t = new Thread(() -> {
-                        while (!s.isClosed()) {
-                            System.out.println("Host "  + s.getInetAddress()
-                                    + System.lineSeparator() + "port:"  + s.getPort()
-                                    +  System.lineSeparator() +  "UserName:");
-                            break;
-                        }
-                    });
-                    t.setName("GameTherad");
-                    System.out.println(t);
-                    t.start();
-                    System.out.println("Имя нити:" + t.getName() + System.lineSeparator()
-                            + "ID нити:" + t.getId());
-
-                    Thread.sleep(2000);
+                    appClient.start();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Ошибка соединения");
-                    alert.setHeaderText("Ошибка соединения");
-                    alert.setContentText("Не удалось подключиться к серверу");
-                    alert.showAndWait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
                 }
+
+
                 //
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/KiselevaMaria/sample/sample2.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/KiselevaMaria/sample/sample2.fxml"));
                 try {
                     loader.load();
                 } catch (IOException e) {

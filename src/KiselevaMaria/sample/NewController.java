@@ -17,11 +17,11 @@ import javafx.scene.image.ImageView;
 import KiselevaMaria.Game;
 import KiselevaMaria.PrintPicturesApplication;
 import KiselevaMaria.strategy.RandomStrategy;
+import javafx.scene.layout.HBox;
 
 
 public class NewController {
     private final Game game = new Game();
-
 
 
     List<Player> players;
@@ -29,6 +29,26 @@ public class NewController {
 
     @FXML
     private ImageView Card1;
+
+    @FXML
+    private ImageView Box1Card1;
+    @FXML
+    private ImageView Box1Card2;
+    @FXML
+    private ImageView Box2Card1;
+    @FXML
+    private ImageView Box2Card2;
+    @FXML
+    private ImageView Box3Card2;
+    @FXML
+    private ImageView Box3Card1;
+
+    @FXML
+    private HBox Box1;
+    @FXML
+    private HBox Box2;
+    @FXML
+    private HBox Box3;
 
     @FXML
     private ImageView Card2;
@@ -72,10 +92,10 @@ public class NewController {
 
     public NewController() {
 
-        for (Card card: game.getDeck()){
+        for (Card card : game.getDeck()) {
             String s1 = card.getColor().name();
             String s2 = card.getValue().name();
-            URL resource = PrintPicturesApplication.class.getResource("image/");
+            URL resource = PrintPicturesApplication.class.getResource("/resources/image");
             String path = resource + s1 + " " + s2 + ".png";
             String file;
             file = URLDecoder.decode(path, StandardCharsets.UTF_8);
@@ -92,7 +112,6 @@ public class NewController {
         }
         players = game.createPlayers(playerName);
     }
-
 
 
     @FXML
@@ -130,10 +149,10 @@ public class NewController {
             RandomStrategy randomStrategy = new RandomStrategy();
             int bet = 0;
             for (Player player : game.getPlayers()) {
-                if(player.isAi()){
-                 randomStrategy.getNext(1000);
+                if (player.isAi()) {
+                    randomStrategy.getNext(1000);
                 }
-                if (player.isPass()){
+                if (player.isPass()) {
                     Bank.setText(Bank.getText() + player.getName() + "-" + "pass" + "\n");
                     continue;
                 }
@@ -162,6 +181,51 @@ public class NewController {
     }
 
 
+    public void addBet(String name, int bet) {
+        Bank.setText(Bank.getText() + name + ": " + bet + "\n");
+    }
+
+    public void setPass(String name) {
+        Bank.setText(Bank.getText() + name + ": " + "спасовал" + "\n");
+    }
+
+    public void showCard(Player player) {
+        try {
+            int number = Integer.parseInt(player.getName().split("\\s")[1]);
+            if (number == 1) {
+                Box1Card1.setImage(player.getCards().get(0).getImage());
+                Box1Card2.setImage(player.getCards().get(1).getImage());
+            } else if (number == 2) {
+                Box2Card1.setImage(player.getCards().get(0).getImage());
+                Box2Card2.setImage(player.getCards().get(1).getImage());
+            } else if (number == 3) {
+                Box3Card1.setImage(player.getCards().get(0).getImage());
+                Box3Card2.setImage(player.getCards().get(1).getImage());
+            }
+        } catch (Exception e) {
+            Card6.setImage(player.getCards().get(0).getImage());
+            Card7.setImage(player.getCards().get(1).getImage());
+        }
+
+    }
+
+    public void showWinner(Player player) {
+        Label.setText(player.getName() + " - победитель!!! Ура !!!");
+    }
+
+    public void putCard(Card card, int position) {
+        if (position == 1) {
+            Card1.setImage(card.getImage());
+        } else if (position == 2) {
+            Card2.setImage(card.getImage());
+        } else if (position == 3) {
+            Card3.setImage(card.getImage());
+        } else if (position == 4) {
+            Card4.setImage(card.getImage());
+        } else if (position == 5) {
+            Card5.setImage(card.getImage());
+        }
+    }
 
 
 }

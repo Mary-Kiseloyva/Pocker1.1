@@ -11,7 +11,16 @@ import java.util.*;
 
 public class Game {
 
-    public Game(){
+
+    private final Deck deck = new Deck();
+
+    private int bank = 0;
+
+    private final List<Player> players = new ArrayList<>();
+
+    private final List<Card> cards = new ArrayList<>(5);
+
+    public Game() {
     }
 
 
@@ -32,45 +41,38 @@ public class Game {
         return new ArrayList<>(cards);
     }
 
-    public Player getWinner(){
+    public Player getWinner() {
         Candidate candidate = findWinner();
         return candidate.getPlayer();
     }
 
 
-    private int bank = 0;
-
     public Stack<Card> getDeck() {
         return deck.getDeck();
     }
-
-    private final Deck deck = new Deck();
 
 
     public List<Player> getPlayers() {
         return players;
     }
 
-    private final List<Player> players = new ArrayList<>();
 
     public List<Card> getCards() {
         return cards;
     }
-
-    private final List<Card> cards = new ArrayList<>(5);
 
 
     public void putCardOnTable() {
         cards.add(deck.pop());
     }
 
-    public void giveCardsToPlayers()  {
+    public void giveCardsToPlayers() {
         for (Player player : players) {
             giveStartCards(player);
         }
     }
 
-    public List<Player> createPlayers(List<String> names)  {
+    public List<Player> createPlayers(List<String> names) {
         for (String name : names) {
             players.add(new Player(name));
         }

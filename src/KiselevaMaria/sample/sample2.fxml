@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,59 +11,63 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="KiselevaMaria.sample.NewController">
    <children>
-      <ImageView fitHeight="402.0" fitWidth="694.0" layoutX="-3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="402.0" fitWidth="694.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="/resources/table.png" />
+            <Image url="@/resources/table.png" />
          </image>
       </ImageView>
-      <Button fx:id="FndWnnr" layoutX="261.0" layoutY="8.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="181.0" style="-fx-background-color: #7fb5b5;" text="Определить победителя" />
-      <Label fx:id="Label" layoutX="286.0" layoutY="230.0" prefHeight="50.0" prefWidth="300.0" />
+      <ImageView fx:id="Card1" fitHeight="102.0" fitWidth="57.0" layoutX="127.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/resources/1.png" />
+         </image></ImageView>
+      <Button fx:id="FndWnnr" layoutX="506.0" layoutY="67.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: #7fb5b5;" text="Определить победителя" />
+      <ImageView fx:id="Card2" fitHeight="84.0" fitWidth="57.0" layoutX="209.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/resources/1.png" />
+         </image></ImageView>
+      <ImageView fx:id="Card3" fitHeight="84.0" fitWidth="57.0" layoutX="286.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/resources/1.png" />
+         </image></ImageView>
+      <Label fx:id="Label" layoutX="286.0" layoutY="269.0" prefHeight="18.0" prefWidth="132.0" />
+      <ImageView fx:id="Card4" fitHeight="84.0" fitWidth="57.0" layoutX="372.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/resources/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Card5" fitHeight="96.0" fitWidth="57.0" layoutX="456.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/resources/1.png" />
+         </image></ImageView>
+      <ImageView fx:id="Card6" fitHeight="117.0" fitWidth="77.0" layoutX="26.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/resources/1.png" />
+         </image></ImageView>
+      <ImageView fx:id="Card7" fitHeight="117.0" fitWidth="85.0" layoutX="127.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@/resources/1.png" />
+         </image></ImageView>
       <Button fx:id="HandOutCards" layoutX="579.0" layoutY="8.0" mnemonicParsing="false" style="-fx-background-color: #7fb5b5;" text="Раздать карты" />
       <TextArea fx:id="Bank" layoutX="578.0" layoutY="299.0" prefHeight="102.0" prefWidth="108.0" style="-fx-background-color: #7fb5b5;" />
-      <TextArea fx:id="Bet" layoutX="269.0" layoutY="362.0" prefHeight="30.0" prefWidth="108.0" style="-fx-background-color: #7fb5b5;" />
+      <TextArea fx:id="Bet" layoutX="269.0" layoutY="362.0"  prefHeight="102.0" prefWidth="108.0"/>
       <Button fx:id="Pass" layoutX="439.0" layoutY="359.0" mnemonicParsing="false" style="-fx-background-color: #7fb5b5;" text="Пас" />
       <Button fx:id="PlaseABet" layoutX="270.0" layoutY="328.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="151.0" style="-fx-background-color: #7fb5b5;" text="Сделать ставку" />
-      <HBox layoutX="194.0" layoutY="144.0" prefHeight="74.0" prefWidth="285.0">
+      <HBox fx:id="Box1" layoutX="6.0" prefHeight="103.0" prefWidth="99.0">
          <children>
-            <ImageView fx:id="Card1" fitHeight="102.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="/resources/1.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="Card2" fitHeight="84.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="/resources/1.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="Card3" fitHeight="84.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="/resources/1.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="Card4" fitHeight="84.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="/resources/1.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="Card5" fitHeight="96.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="/resources/1.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="Box1Card1" fitHeight="94.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="Box1Card2" fitHeight="103.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </HBox>
-      <HBox layoutX="39.0" layoutY="280.0" prefHeight="116.0" prefWidth="158.0">
+      <HBox fx:id="Box2" layoutX="173.0" layoutY="8.0" prefHeight="94.0" prefWidth="128.0">
          <children>
-            <ImageView fx:id="Card6" fitHeight="117.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="/resources/1.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="Card7" fitHeight="132.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="/resources/1.png" />
-               </image>
-            </ImageView>
+            <ImageView fx:id="Box2Card1" fitHeight="102.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="Box2Card2" fitHeight="105.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+      <HBox fx:id="Box3" layoutX="354.0" layoutY="8.0" prefHeight="94.0" prefWidth="128.0">
+         <children>
+            <ImageView fx:id="Box3Card1" fitHeight="105.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="Box3Card2" fitHeight="105.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </HBox>
    </children>
